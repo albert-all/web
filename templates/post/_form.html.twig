@@ -1,0 +1,55 @@
+{{ form_start(form) }}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <!-- ##### Post Content Area ##### -->
+        <div class="col-12 col-lg-9">
+            <!-- Single Blog Area  -->
+            <div class="single-blog-area blog-style-2 mb-50">
+                <div class="needs-validation" novalidate>
+                    <div class="HeaderAdd position-relative">
+                        <label for="HeaderAdd" class="form-label">Название поста</label>
+                        <p id="countSymbolHeader">(0/70 символов)</p>
+                        {{ form_widget(form.heading) }}
+                        <div class="invalid-feedback">
+                            Заполните поле!
+                        </div>
+                    </div>
+                    <div>
+                        <img id="img-preview" type="file" src="/img/AddPhoto.png" alt="Rectangle5" class="addPhoto">
+                        {{ form_widget(form.photo) }}
+                    </div>
+
+                    <div>
+                        <label for="TextareaAnnotation" class="form-label">Аннотация к посту</label>
+                        <p id="countSymbol">(0/255 символов)</p>
+                        {{ form_widget(form.annotation) }}
+                        <div class="invalid-feedback">
+                            Заполните поле!
+                        </div>
+                    </div>
+
+                    <label for="TextareaPost" class="form-label">Добавьте содержание поста</label>
+                    {{form_widget(form.content) }}
+                    <div class="invalid-feedback">
+                        Заполните поле!
+                    </div>
+                    <button class="btn original-btn publishBtn"
+                            id="publishBtn">{{ button_label|default('Добавить пост') }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="/js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="/js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="/js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="/js/plugins.js"></script>
+    <!-- Active js -->
+    <script src="/js/active.js"></script>
+    <script src="/js/add_post.js"></script>
+    {{ form_end(form) }}

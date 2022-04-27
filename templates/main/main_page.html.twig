@@ -1,0 +1,104 @@
+{% extends 'base.html.twig' %}
+
+ {% block stylesheets %}
+     <link rel="stylesheet" href="style.css">
+     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+     <link rel="icon" href="img/core-img/favicon.ico">
+     <meta charset="UTF-8">
+     <meta name="description" content="">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+ {% endblock %}
+
+
+{% block body %}
+
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preload-content">
+            <div id="original-load"></div>
+        </div>
+    </div>
+
+    <!-- ##### Header Area Start ##### -->
+    {% include '/main/header.html.twig' %}
+    <!-- ##### Header Area End ##### -->
+
+    <div class="row">
+        <div class="col-12">
+            <img src='img/1234.jpg' class="img-fluid banner" alt="Responsive image">
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-9">
+                <!-- Single Blog Area  -->
+                {% for post in posts %}
+                    {% if post.ispublication == true %}
+                    <div class="single-blog-area blog-style-2 mb-50 wow fadeInUp" data-wow-delay="0.6s"
+                         data-wow-duration="1000ms">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-md-6">
+                                <div class="single-blog-thumbnail">
+                                    <a href="/post/{{ post.id }}"><img src="{{ post.photo|e }}" alt=""></a>
+                                    <div class="post-date">
+                                        <a href="#">{{ post.date|format_datetime(pattern='dd',locale='en') }} <span>{{ post.date|format_datetime(pattern='MMMM',locale='en') }}</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <!-- Blog Content -->
+                                <div class="single-blog-content">
+                                    <div class="line"></div>
+                                    <a class="post-tag">Lifestyle</a>
+                                    <h4><a href="/post/{{ post.id }}" class="post-headline">{{ post.heading|e }}</a></h4>
+                                    <p>{{ post.annotation|e }}</p>
+                                    <div class="post-meta">
+                                        <p>By Федорова Софья</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+
+            </div>
+
+        </div>
+    </div>
+    <!-- ##### Footer Area Start ##### -->
+    <footer class="color_footer">
+        <div class="container">
+            <div class="row d-flex justify-content-between">
+                <div class="col-4 col-sm-5">ПМ-19-1 Мамедов Альберт</div>
+                <div class="col-4 col-sm-4">albert.e.m@mail.ru</div>
+
+                <div class="w-100"></div>
+
+                <div class="col-4 col-sm-5">ПМ-19-1 Федорова Софья</div>
+
+                <div class="col-4 col-sm-4">sofya-fedorova-2014@mail.ru</div>
+            </div>
+        </div>
+    </footer>
+    <!-- ##### Footer Area End ##### -->
+
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="js/plugins.js"></script>
+    <!-- Active js -->
+    <script src="js/active.js"></script>
+
+
+{% endblock %}

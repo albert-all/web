@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+ {% block stylesheets %}
+     <link rel="stylesheet" href="/style.css">
+     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+     <link rel="icon" href="/img/core-img/favicon.ico">
+     <meta charset="UTF-8">
+     <meta name="description" content="">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+ {% endblock %}
+
+{% block title %}New Post{% endblock %}
+
+{% block body %}
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preload-content">
+            <div id="original-load"></div>
+        </div>
+    </div>
+
+    <!-- ##### Header Area Start ##### -->
+    {% include '/main/header.html.twig' %}
+    <!-- ##### Header Area End ##### -->
+
+    {{ include('post/_form.html.twig') }}
+
+{% endblock %}

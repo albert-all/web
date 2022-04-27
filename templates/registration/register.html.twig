@@ -1,0 +1,103 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+ {% block stylesheets %}
+     <link rel="stylesheet" href="/style.css">
+     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+     <link rel="icon" href="/img/core-img/favicon.ico">
+     <meta charset="UTF-8">
+     <meta name="description" content="">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+     <meta charset="UTF-8">
+     <meta name="description" content="">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+
+ {% endblock %}
+
+{% block body %}
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preload-content">
+            <div id="original-load"></div>
+        </div>
+    </div>
+
+    <!-- ##### Header Area Start ##### -->
+    {% include '/main/header.html.twig' %}
+    <!-- ##### Header Area End ##### -->
+
+    <div class="subscribe-newsletter-area">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form action="#" method="post" id="formReg" class="row g-3 needs-validation justify-content-center"
+                          novalidate>
+                        <div class="col-12"><h5 class="title modalTitle">Регистрация</h5></div>
+                        {{ form_start(registrationForm) }}
+                        <div class="col-6 userInfReg position-relative">
+                            {{ form_row(registrationForm.name) }}
+                            <div class="invalid-feedback">
+                                Заполните поле!
+                            </div>
+                        </div>
+
+                        <div class="col-6 userInfReg position-relative">
+                            {{ form_row(registrationForm.surname) }}
+                            <div class="invalid-feedback">
+                                Заполните поле!
+                            </div>
+                        </div>
+
+                        <div class="col-6 userInfReg position-relative">
+                            {{ form_row(registrationForm.patronymic) }}
+                        </div>
+
+                        <div class="col-6 userInfReg position-relative">
+                            {{ form_row(registrationForm.email) }}
+                        </div>
+
+
+
+                        <div class="col-12 userInfReg position-relative">
+                            {{ form_row(registrationForm.plainPassword) }}
+                        </div>
+
+                        <div class="col-12 mt-3 ">
+                            <div style="gap: 5px" class="form-check d-flex">
+                                {{ form_row(registrationForm.agreeTerms) }}
+                            </div>
+                        </div>
+
+                        <button type="submit" id="registrationBtn" class="btn original-btn registrationBtn mt-3">Зарегистрироваться
+                        </button>
+                        {{ form_end(registrationForm) }}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ##### Footer Area End ##### -->
+
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="/js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="/js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="/js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="/js/plugins.js"></script>
+    <!-- Active js -->
+    <script src="/js/active.js"></script>
+    <!-- Main(мой) js -->
+    <script src="/js/main.js"></script>
+
+{% endblock %}
